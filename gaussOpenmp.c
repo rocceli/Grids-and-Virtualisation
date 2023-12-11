@@ -30,7 +30,6 @@ void simulateHeatConduction(int m, int n, double tol) {
         iter++;
         difmax = 0.0; 
 
-        #pragma omp parallel for private(diff) reduction(max : difmax)
         for (int i = 1; i <= m; i++) {
             for (int j = 1; j <= n; j++) {
                 tnew[i][j] = (t[i - 1][j] + t[i + 1][j] + t[i][j - 1] + t[i][j + 1]) / 4.0;
